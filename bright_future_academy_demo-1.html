@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Demo landing page for Bright Future Academy, a fictional coaching centre.">
+  <meta name="theme-color" content="#102b27">
+  <title>Bright Future Academy | Demo Website</title>
+  <style>
+    :root {
+      --green: #102b27;
+      --green-2: #1d4940;
+      --gold: #d9b66f;
+      --cream: #f7f5ef;
+      --ink: #17211f;
+      --muted: #65716d;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    .demo-banner {
+      padding: 9px 14px; text-align: center; color: #fff;
+      background: #8a3d25; font-size: 12px; letter-spacing: .04em;
+    }
+    .wrap { width: min(1100px, 92%); margin: 0 auto; }
+    header { background: var(--green); color: #fff; }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
+    .brand-mark {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      border: 1px solid var(--gold); border-radius: 12px; color: var(--gold); font-weight: 800;
+    }
+    .brand strong { display: block; font-size: 15px; letter-spacing: .02em; line-height: 1.2; }
+    .brand small { display: block; color: #c7d4cf; font-size: 11px; margin-top: 4px; }
+    .nav a.contact { text-decoration: none; color: var(--green); background: var(--gold); padding: 10px 14px; border-radius: 9px; font-weight: 750; font-size: 13px; }
+    .hero { background: var(--green); color: #fff; padding: 56px 0 70px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 44px; align-items: center; }
+    .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: .15em; font-weight: 800; font-size: 11px; }
+    h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.08; letter-spacing: -.04em; margin: 16px 0 18px; max-width: 650px; }
+    .hero p { color: #d7e1dc; max-width: 540px; margin: 0 0 25px; font-size: 16px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; text-decoration: none; border-radius: 10px; padding: 13px 18px; font-weight: 800; font-size: 14px; border: 1px solid transparent; }
+    .btn-primary { color: var(--green); background: var(--gold); }
+    .btn-secondary { color: #fff; border-color: #55746a; }
+    .hero-note { font-size: 12px !important; color: #aebfb8 !important; margin-top: 16px !important; }
+    .visual { min-height: 300px; display: flex; align-items: center; justify-content: center; position: relative; }
+    .visual-card { width: min(100%, 360px); background: #f9f7f1; color: var(--green); border-radius: 22px; padding: 28px; box-shadow: 0 25px 70px #0004; transform: rotate(2deg); }
+    .visual-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-bottom: 18px; border-bottom: 1px solid #e4e0d6; }
+    .visual-top b { font-size: 12px; }
+    .pill { font-size: 10px; padding: 5px 8px; border-radius: 99px; background: #e8eddf; color: #355c4b; font-weight: 800; }
+    .book { margin: 24px 0 14px; height: 110px; border-radius: 14px; background: linear-gradient(135deg, #1d4940, #102b27); color: var(--gold); display: grid; place-items: center; text-align: center; }
+    .book span { font-size: 11px; letter-spacing: .16em; display: block; }
+    .book strong { display: block; font-size: 23px; line-height: 1.15; }
+    .line { height: 8px; background: #e3e4dc; border-radius: 8px; margin: 10px 0; }
+    .line.short { width: 64%; }
+    section { padding: 66px 0; }
+    .section-head { max-width: 650px; margin: 0 auto 32px; text-align: center; }
+    .section-head .eyebrow { color: #98752f; }
+    h2 { font-size: clamp(27px, 3vw, 38px); line-height: 1.15; letter-spacing: -.03em; margin: 10px 0 12px; color: var(--green); }
+    .section-head p { color: var(--muted); margin: 0; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: #fff; border: 1px solid #e9e5db; padding: 23px; border-radius: 16px; }
+    .card .num { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px; background: #e9eee7; color: var(--green); font-weight: 900; }
+    .card h3 { color: var(--green); margin: 17px 0 8px; font-size: 18px; }
+    .card p { color: var(--muted); margin: 0; font-size: 14px; }
+    .about { background: #eeece3; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 44px; align-items: center; }
+    .quote-card { background: var(--green); color: #fff; border-radius: 18px; padding: 28px; }
+    .quote-card .big { font-size: 42px; color: var(--gold); line-height: 1; }
+    .quote-card p { color: #d7e1dc; margin-bottom: 0; }
+    .about-copy p { color: var(--muted); }
+    .list { padding: 0; list-style: none; display: grid; gap: 10px; }
+    .list li::before { content: "✓"; color: #98752f; font-weight: 900; margin-right: 10px; }
+    .cta { background: var(--green); color: #fff; text-align: center; }
+    .cta h2 { color: #fff; }
+    .cta p { color: #d7e1dc; max-width: 600px; margin: 0 auto 24px; }
+    .contact-box { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    footer { background: #0a201d; color: #bdcbc5; padding: 22px 0; font-size: 12px; }
+    .footer-row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .notice { color: #f4d9b8; }
+    @media (max-width: 760px) {
+      .nav { min-height: 68px; }
+      .hero { padding: 42px 0 48px; }
+      .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 24px; }
+      .visual { min-height: auto; padding: 8px 0 10px; }
+      .visual-card { transform: none; }
+      section { padding: 48px 0; }
+      .cards { grid-template-columns: 1fr; }
+      .card { padding: 20px; }
+      .nav a.contact { padding: 9px 10px; font-size: 12px; }
+      .brand strong { font-size: 13px; }
+      .brand-mark { width: 38px; height: 38px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">DEMO WEBSITE • FICTIONAL BUSINESS DETAILS • NOT A REAL ACADEMY</div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Bright Future Academy home">
+        <span class="brand-mark">BF</span>
+        <span><strong>BRIGHT FUTURE ACADEMY</strong><small>LEARN WITH PURPOSE</small></span>
+      </a>
+      <a class="contact" href="#contact">Enquire Now</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">A brighter way to learn</div>
+          <h1>Build strong foundations for your future.</h1>
+          <p>A welcoming learning space for students to practise, ask questions and grow with confidence. Explore our example coaching programmes and enquire for details.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Ask About Classes ↗</a>
+            <a class="btn btn-secondary" href="#courses">Explore Programmes</a>
+          </div>
+          <p class="hero-note">Sample copy for demonstration only. Replace with verified information before publishing for a real client.</p>
+        </div>
+        <div class="visual" aria-label="Decorative sample course card">
+          <div class="visual-card">
+            <div class="visual-top"><b>YOUR LEARNING JOURNEY</b><span class="pill">DEMO</span></div>
+            <div class="book"><div><span>LEARN • PRACTISE • GROW</span><strong>Bright Future</strong></div></div>
+            <div class="line"></div><div class="line"></div><div class="line short"></div>
+            <p style="font-size:12px;color:#65716d;margin:18px 0 0">Clear lessons. Consistent practice. A supportive learning environment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">What you can learn</div>
+          <h2>Programmes designed around learning</h2>
+          <p>These are example categories. Update subjects, class levels and availability to match the real academy.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="num">01</div><h3>School Subject Support</h3><p>Example support for school subjects, with lessons and practice organised around student needs.</p></article>
+          <article class="card"><div class="num">02</div><h3>Exam Preparation</h3><p>Example revision sessions to help students review topics and practise questions.</p></article>
+          <article class="card"><div class="num">03</div><h3>Foundation Classes</h3><p>Example foundational learning for students who want to strengthen core concepts.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <div class="quote-card"><div class="big">“</div><h3>Small steps can lead to meaningful progress.</h3><p>A sample message about learning, consistency and student support.</p></div>
+        <div class="about-copy">
+          <div class="eyebrow">About the academy</div>
+          <h2>A learning environment that puts students first.</h2>
+          <p>Bright Future Academy is a fictional name used to demonstrate how a coaching centre can present its courses and make it easier for families to ask questions online.</p>
+          <ul class="list">
+            <li>Clear information about classes and subjects</li>
+            <li>Simple contact options for parents and students</li>
+            <li>A layout designed for mobile phones</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <div class="wrap">
+        <div class="eyebrow">Take the next step</div>
+        <h2>Have questions about classes?</h2>
+        <p>Use the enquiry button to start a conversation. For this demo, the contact details are placeholders and must be replaced before the page is used by a real business.</p>
+        <div class="contact-box">
+          <a class="btn btn-primary" id="whatsapp-link" href="#contact">Enquire on WhatsApp ↗</a>
+          <a class="btn btn-secondary" href="#courses">View Programmes</a>
+        </div>
+        <p class="hero-note" id="contact-note">Demo contact: replace the WhatsApp number in the HTML before publishing for a client.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© <span id="year"></span> Bright Future Academy — demo design</span>
+      <span class="notice">Fictional business • Replace all demo details before client delivery</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    // Replace 91XXXXXXXXXX with the client's country code + WhatsApp number (digits only).
+    const whatsappNumber = "91XXXXXXXXXX";
+    const whatsappLink = document.getElementById("whatsapp-link");
+    whatsappLink.addEventListener("click", function (event) {
+      if (whatsappNumber.includes("X")) {
+        event.preventDefault();
+        document.getElementById("contact-note").textContent =
+          "Demo only: add the real business WhatsApp number in the HTML to activate this button.";
+      } else {
+        whatsappLink.href = "https://wa.me/" + whatsappNumber +
+          "?text=" + encodeURIComponent("Hello, I would like to know more about your classes.");
+      }
+    });
+    // If a real number is configured, set the destination before the user clicks.
+    if (!whatsappNumber.includes("X")) {
+      whatsappLink.href = "https://wa.me/" + whatsappNumber +
+        "?text=" + encodeURIComponent("Hello, I would like to know more about your classes.");
+    }
+  </script>
+</body>
+</html>
